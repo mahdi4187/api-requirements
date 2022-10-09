@@ -21,7 +21,7 @@ class ProductResource extends JsonResource
             'category' => $this->category,
             'price' => [
                 'original' => (int)$this->price,
-                'final' => $discount ? $this->price * $discount / 100 : $this->price,
+                'final' => $discount ? $this->price - ($this->price * $discount / 100) : $this->price,
                 'discount_percentage' => $discount ? $discount . '%' : null,
                 'currency' => 'EUR'
             ],
